@@ -17,6 +17,8 @@ def parse_query() -> str:
 
     parser: ArgumentParser = ArgumentParser(description="Roga Terminal Search Tool")
     parser.add_argument("query", type=str, help="User prompt")
+    args = parser.parse_args()
+    return args.query
 
 
 def render_answer(answer: str) -> None:
@@ -35,16 +37,6 @@ def render_answer(answer: str) -> None:
     markdown_object = Markdown(answer)
     console.print(markdown_object)
 
-    
-
-    sample_answer: str = """# Joining Python Lists
-
-    Use the `+` operator to combine two lists:
-
-    ```python
-    first = [1, 2]
-    second = [3, 4]
-    combined = first + second"""
 
 
 def main() -> None:
@@ -53,5 +45,14 @@ def main() -> None:
     Raises:
         SystemExit: if command input is invalid.
     """
-   response = parse_query() 
+    parse_query()
+    sample_answer: str = """# Joining Python Lists
+
+    Use the `+` operator to combine two lists:
+
+    ```python
+    first = [1, 2]
+    second = [3, 4]
+    combined = first + second"""
+    render_answer(sample_answer)
 

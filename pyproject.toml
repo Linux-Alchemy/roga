@@ -12,6 +12,9 @@ dependencies = [
     "rich>=15.0.0",
 ]
 
+[project.scripts]
+roga = "roga_cli.main:main"
+
 [project.optional-dependencies]
 dev = ["ipython", "pytest", "ruff"]
 
