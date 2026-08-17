@@ -53,6 +53,8 @@ def main() -> None:
     ```python
     first = [1, 2]
     second = [3, 4]
-    combined = first + second"""
+    combined = first + second
+    '''
+    """
     render_answer(sample_answer)
 
