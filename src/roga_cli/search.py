@@ -1,4 +1,4 @@
-# temp placeholder for file description
+"""Build pure OpenRouter request arguments for Roga searches."""
 
 from typing import Any
 from roga_cli.prompts import build_messages
@@ -7,18 +7,18 @@ DEFAULT_MODEL: str = "google/gemini-2.5-flash"
 
 
 def build_request(query: str, model: str) -> dict[str, Any]:
-    """Build keywork args for one web-grounded chat completion.
+    """Build keyword arguments for one web-grounded chat completion.
 
     Args:
-        query: the user's validated search question.
-        model: the OpenRouter model used for the search
+        query: The user's validated search question.
+        model: The OpenRouter model used for the search.
 
     Returns:
-        JSON compatible request args containing the model, message,
-        and one OpenRouter web plugin configured for 3 results.
+        JSON-compatible request arguments containing the model, messages,
+        and one OpenRouter web plugin configured for three results.
 
     Raises:
-    ValueError: if the query or model arg is empty
+        ValueError: If the query or model is empty or whitespace-only.
     """
 
     if not model.strip():
@@ -40,4 +40,3 @@ def build_request(query: str, model: str) -> dict[str, Any]:
         "messages": messages,
         "extra_body": extra_body
     }
-

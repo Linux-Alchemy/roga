@@ -1,4 +1,4 @@
-# temp placeholder file description
+"""Construct messages that define Roga's answer contract."""
 
 SYSTEM_PROMPT: str = """
 You are Roga, a quick terminal reference for technical questions.
@@ -38,13 +38,13 @@ def build_messages(query: str) -> list[dict[str, str]]:
     """Build the ordered messages for one Roga search.
 
     Args:
-        query: the users prompt
+        query: The user's non-empty terminal-oriented question.
 
     Returns:
         A system message followed by the unchanged user query.
 
     Raises:
-        ValueError: if query is empty
+        ValueError: If the query is empty or whitespace-only.
     """
     if not query.strip():
         raise ValueError("Query cannot be empty")
@@ -54,4 +54,3 @@ def build_messages(query: str) -> list[dict[str, str]]:
         {'role': 'user', 'content': query}
     ]
     return messages
-

@@ -93,9 +93,9 @@ roga = "roga_cli.main:main"
 **Blocks:**
 
 - [ ] **0.1.1** — Run `pyinit roga-cli` and inspect the generated src layout before changing it.
-- [ ] **0.1.2** — Add the approved dependencies and the `roga` console entry point.
+- [x] **0.1.2** — Add the approved dependencies and the `roga` console entry point.
 - [ ] **0.1.3** — Finish `.gitignore` and credential-free `.env.example`.
-- [ ] **0.1.4** — Verify: run `uv sync && uv run python -c "import openai, rich, dotenv"` → exits `0` with no traceback.
+- [x] **0.1.4** — Verify: run `uv sync && uv run python -c "import openai, rich, dotenv"` → exits `0` with no traceback.
 
 ### Task 0.2: Build the Fake End-to-End Command
 
@@ -150,16 +150,16 @@ def main() -> None:
 
 **Blocks:**
 
-- [ ] **0.2.1** — Implement `parse_query` with one required positional query.
+- [x] **0.2.1** — Implement `parse_query` with one required positional query.
 - [ ] **0.2.2** — Implement `render_answer` and the fixed Markdown sample in `main`.
 - [ ] **0.2.3** — Verify: run `uv run roga "python: join lists"` → Ghostty shows a readable heading, prose, and highlighted Python block.
-- [ ] **0.2.4** — Verify: run `uv run roga` → argparse prints usage to stderr and exits `2` without a traceback.
+- [x] **0.2.4** — Verify: run `uv run roga` → argparse prints usage to stderr and exits `2` without a traceback.
 
 ### Phase 0 Checkpoint
 
 - [ ] `uv run roga "test"` traverses the entire fake path and renders cleanly.
-- [ ] `uv run roga --help` accurately describes the command and query.
-- [ ] Commit the walking skeleton before adding any network behaviour.
+- [x] `uv run roga --help` accurately describes the command and query.
+- [x] Commit the walking skeleton before adding any network behaviour.
 
 ---
 
@@ -212,10 +212,10 @@ def build_messages(query: str) -> list[dict[str, str]]:
 
 **Blocks:**
 
-- [ ] **1.1.1** — Write `SYSTEM_PROMPT` according to the seven behaviour rules.
-- [ ] **1.1.2** — Implement `build_messages` with whitespace validation and unchanged user content.
-- [ ] **1.1.3** — Test message order, roles, unchanged query content, and empty-query rejection.
-- [ ] **1.1.4** — Verify: run `uv run python -m pytest tests/test_search.py -v` → all message tests pass.
+- [x] **1.1.1** — Write `SYSTEM_PROMPT` according to the seven behaviour rules.
+- [x] **1.1.2** — Implement `build_messages` with whitespace validation and unchanged user content.
+- [x] **1.1.3** — Test message order, roles, unchanged query content, and empty-query rejection.
+- [x] **1.1.4** — Verify: run `uv run python -m pytest tests/test_search.py -v` → all message tests pass.
 
 ### Task 1.2: Build the OpenRouter Request Arguments
 
@@ -264,14 +264,14 @@ def build_request(query: str, model: str) -> dict[str, Any]:
 
 **Blocks:**
 
-- [ ] **1.2.1** — Add and document the `google/gemini-2.5-flash` `DEFAULT_MODEL` constant.
-- [ ] **1.2.2** — Implement `build_request` with exactly one web plugin and three results.
-- [ ] **1.2.3** — Test the model, messages, plugin id, engine, result limit, and absence of streaming.
-- [ ] **1.2.4** — Verify: run `uv run python -m pytest tests/test_search.py -v` → all request-shape tests pass without an API key.
+- [x] **1.2.1** — Add and document the `google/gemini-2.5-flash` `DEFAULT_MODEL` constant.
+- [x] **1.2.2** — Implement `build_request` with exactly one web plugin and three results.
+- [x] **1.2.3** — Test the model, messages, plugin id, engine, result limit, and absence of streaming.
+- [x] **1.2.4** — Verify: run `uv run python -m pytest tests/test_search.py -v` → all request-shape tests pass without an API key.
 
 ### Phase 1 Checkpoint
 
-- [ ] Run `env -u OPENROUTER_API_KEY uv run python -m pytest -v` → all tests pass offline.
+- [x] Run `env -u OPENROUTER_API_KEY uv run python -m pytest -v` → all tests pass offline.
 - [ ] Read the request dictionary aloud from top to bottom and explain every field before proceeding.
 - [ ] Commit the tested request contract before adding the real API.
 

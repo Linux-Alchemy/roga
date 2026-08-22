@@ -1,4 +1,5 @@
-# temp placeholder for file description
+"""Command-line parsing and Rich rendering for Roga."""
+
 from argparse import ArgumentParser
 from rich import markdown
 from rich.console import Console
@@ -11,8 +12,8 @@ def parse_query() -> str:
     Returns:
         Non-empty query supplied to the 'roga' command.
 
-    Raise:
-        SystemExit: if query is absent or invalid.
+    Raises:
+        SystemExit: If the query is absent or invalid.
     """
 
     parser: ArgumentParser = ArgumentParser(description="Roga Terminal Search Tool")
@@ -25,10 +26,10 @@ def render_answer(answer: str) -> None:
     """Render the answer in markdown to the terminal.
 
     Args:
-        answer: Non-empty markdown text
+        answer: Non-empty Markdown text to display.
 
     Raises:
-        ValueError: if answer is empty or only white space.
+        ValueError: If the answer is empty or whitespace-only.
     """
     console: Console = Console()
     if not answer.strip():
@@ -40,10 +41,10 @@ def render_answer(answer: str) -> None:
 
 
 def main() -> None:
-    """Runs one 'roga' query and renders the answer.
+    """Run one Roga query and render the answer.
 
     Raises:
-        SystemExit: if command input is invalid.
+        SystemExit: If command input is invalid.
     """
     parse_query()
     sample_answer: str = """# Joining Python Lists
@@ -57,4 +58,3 @@ def main() -> None:
     '''
     """
     render_answer(sample_answer)
-
